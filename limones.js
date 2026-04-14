@@ -7,7 +7,7 @@ let limonX=0;
 let limonY=0;
 
 const ALTURA_SUELO=20;
-const AlTO_PERSONAJE=40;
+const ALTO_PERSONAJE=40;
 const ANCHO_PERSONAJE=20;
 
 function iniciarJuego(){    
@@ -23,5 +23,5 @@ function dibujarSuelo(){
 
 function dibujarPersonaje(){
     ctx.fillStyle= "yellow";
-    ctx.fillRect(canvas.width/2,canvas.height-(ALTURA_SUELO+AlTO_PERSONAJE),ANCHO_PERSONAJE,AlTO_PERSONAJE);
+    ctx.fillRect(canvas.width/2,canvas.height-(ALTURA_SUELO+ALTO_PERSONAJE),ANCHO_PERSONAJE,ALTO_PERSONAJE);
 }
