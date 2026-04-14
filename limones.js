@@ -20,6 +20,7 @@ function iniciarJuego(){
     dibujarSuelo();
     dibujarPersonaje();
     dibujarLimon();
+    aparecerLimon();
     
 }
 
@@ -73,6 +74,16 @@ function actualizarPantalla(){
 
 function detectarColision(){
     if(limonX+ANCHO_LIMON>personajeX && limonX<personajeX+ANCHO_PERSONAJE && limonY+ALTO_LIMON>personajeY && limonY<personajeY+ALTO_PERSONAJE){
-     { alert("¡Colisión detectada!");  }
+     aparecerLimon();
     }
+}
+
+function generarAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min +1 )) + min; // con esta función se genera un número aleatorio entre el mínimo y máximo 
+}
+
+function aparecerLimon(){
+    limonX=generarAleatorio(0,canvas.width-ANCHO_LIMON);
+    limonY=5;
+    actualizarPantalla();
 }
