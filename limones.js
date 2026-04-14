@@ -18,6 +18,7 @@ let limonY=5;
 
 
 function iniciarJuego(){    
+    setInterval(bajarLimon,300);
     dibujarSuelo();
     dibujarPersonaje();
     dibujarLimon();
@@ -78,7 +79,7 @@ function detectarAtrapado(){
     if(limonX+ANCHO_LIMON>personajeX && limonX<personajeX+ANCHO_PERSONAJE && limonY+ALTO_LIMON>personajeY && limonY<personajeY+ALTO_PERSONAJE){
      aparecerLimon();
      puntaje=puntaje+1;
-     console.log("Puntaje: "+puntaje);
+     
      let componentePuntaje=document.getElementById("txtPuntaje");
         componentePuntaje.textContent= puntaje;
     }
