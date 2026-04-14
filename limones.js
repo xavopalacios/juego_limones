@@ -1,21 +1,26 @@
 let canvas=document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
+
+const ALTURA_SUELO=25;
+const ALTO_PERSONAJE=60;
+const ANCHO_PERSONAJE=40;
+const ALTO_LIMON=20;
+const ANCHO_LIMON=20;
+
+
 let puntaje=0;
 let personajeX=canvas.width/2;
-let personajeY=0;
+let personajeY=canvas.height-(ALTURA_SUELO+ALTO_PERSONAJE);
 let limonX=canvas.width/2;
 let limonY=5;
 
-const ALTURA_SUELO=20;
-const ALTO_PERSONAJE=40;
-const ANCHO_PERSONAJE=20;
-const ALTO_LIMON=20;
-const ANCHO_LIMON=20;
+
 
 function iniciarJuego(){    
     dibujarSuelo();
     dibujarPersonaje();
     dibujarLimon();
+    
 }
 
 function dibujarSuelo(){
@@ -26,7 +31,7 @@ function dibujarSuelo(){
 
 function dibujarPersonaje(){
     ctx.fillStyle= "yellow";
-    ctx.fillRect(personajeX,canvas.height-(ALTURA_SUELO+ALTO_PERSONAJE),ANCHO_PERSONAJE,ALTO_PERSONAJE);
+    ctx.fillRect(personajeX,personajeY,ANCHO_PERSONAJE,ALTO_PERSONAJE);
 }
 function dibujarLimon(){
     ctx.fillStyle= "green";
@@ -34,13 +39,15 @@ function dibujarLimon(){
 }
 
 function moverIzquierda(){
-    personajeX=personajeX-10;
+    personajeX=personajeX-10; 
     actualizarPantalla();
+      
 }
 
 function moverDerecha(){
     personajeX=personajeX+10;
     actualizarPantalla();
+    
 }
 
 function bajarLimon(){
@@ -48,14 +55,24 @@ function bajarLimon(){
     actualizarPantalla();
 }
 
-function actualizarPantalla(){
-    limpiarCanvas();
-    dibujarSuelo();
-    dibujarPersonaje();
-    dibujarLimon();
-}
+
 
 function limpiarCanvas(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
+
+function actualizarPantalla(){
+    detectarColision();
+    limpiarCanvas();
+    dibujarSuelo();
+    dibujarPersonaje();
+    dibujarLimon();
+    
+}
+
+function detectarColision(){
+    if(limonX+ANCHO_LIMON>personajeX && limonX<personajeX+ANCHO_PERSONAJE && limonY+ALTO_LIMON>personajeY && limonY<personajeY+ALTO_PERSONAJE){
+     { alert("¡Colisión detectada!");  }
+    }
+}
