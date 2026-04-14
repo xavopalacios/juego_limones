@@ -9,6 +9,7 @@ const ANCHO_LIMON=20;
 
 
 let puntaje=0;
+let vidas=3;
 let personajeX=canvas.width/2;
 let personajeY=canvas.height-(ALTURA_SUELO+ALTO_PERSONAJE);
 let limonX=canvas.width/2;
@@ -64,7 +65,8 @@ function limpiarCanvas(){
 
 
 function actualizarPantalla(){
-    detectarColision();
+    detectarAtrapado();
+    detectarPiso();
     limpiarCanvas();
     dibujarSuelo();
     dibujarPersonaje();
@@ -72,15 +74,30 @@ function actualizarPantalla(){
     
 }
 
-function detectarColision(){
+function detectarAtrapado(){
     if(limonX+ANCHO_LIMON>personajeX && limonX<personajeX+ANCHO_PERSONAJE && limonY+ALTO_LIMON>personajeY && limonY<personajeY+ALTO_PERSONAJE){
      aparecerLimon();
+     puntaje=puntaje+1;
+     console.log("Puntaje: "+puntaje);
+     let componentePuntaje=document.getElementById("txtPuntaje");
+        componentePuntaje.textContent= puntaje;
     }
 }
 
 function generarAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min +1 )) + min; // con esta función se genera un número aleatorio entre el mínimo y máximo 
 }
+
+function detectarPiso(){
+    if(limonY+ALTO_LIMON>canvas.height-ALTURA_SUELO){
+        aparecerLimon();    
+        vidas=vidas-1;
+        
+        let componenteVida=document.getElementById("txtVida");
+        componenteVida.textContent= vidas;
+    }
+}
+
 
 function aparecerLimon(){
     limonX=generarAleatorio(0,canvas.width-ANCHO_LIMON);
