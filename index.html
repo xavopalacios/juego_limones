@@ -19,23 +19,31 @@
 
     <section class="layout-juego">
       
-      <!-- BLOQUE JUEGO + CONTROLES -->
       <div class="bloque-juego">
         
         <div class="juego">
           <canvas id="areaJuego" width="600" height="400"></canvas>
         </div>
 
-        <!-- HUD CONTROLES -->
+        <!-- HUD -->
         <div class="controles-barra">
-          <button onclick="moverIzquierda()">⬅ Izquierda</button>
-          <button onclick="moverDerecha()">Derecha ➡</button>
-          <button onclick="reiniciarJuego()" class="reiniciar">Reiniciar</button>
+          
+          <!-- LOGO (mini mapa estilo dota) -->
+          <div class="mini-mapa">
+            <img src="dota-logo.png" alt="Mapa Dota">
+          </div>
+
+          <!-- BOTONES -->
+          <div class="grupo-botones">
+            <button onclick="moverIzquierda()">⬅ Izquierda</button>
+            <button onclick="moverDerecha()">Derecha ➡</button>
+            <button onclick="reiniciarJuego()" class="reiniciar">Reiniciar</button>
+          </div>
+
         </div>
 
       </div>
 
-      <!-- PANEL DERECHO -->
       <aside class="panel">
         <div class="marcador">
           <p>PUNTOS</p>
