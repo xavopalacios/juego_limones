@@ -3,55 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="limones.css"/>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="limones.css""")/>>
   <script src="utils.js"></script>
-  <title>Caza Estrellas</title>
+  <title>Caza Estrellas | Tron Edition</title>
 </head>
 
 <body onload="iniciarJuego()">
   <main class="contenedor">
 
     <header class="header">
-      <h1>Atrapar Limones</h1>
-      <p class="subtitulo">Si del cielo te caen limones...</p>
-      <h2 class="autor">Autor: Xavier Palacios</h2>
+      <h1 class="glitch-text">Atrapar Limones</h1>
+      <p class="subtitulo">SISTEMA INICIALIZADO: Capture los limones...</p>
+      <h2 class="autor"> AUTOR: Xavier Palacios</h2>
     </header>
 
     <section class="layout-juego">
       
       <div class="bloque-juego">
         
-        <div class="juego">
+        <div class="juego-frame">
           <canvas id="areaJuego" width="600" height="400"></canvas>
         </div>
 
         <!-- HUD -->
         <div class="controles-barra">
           
-          <!-- LOGO (mini mapa estilo dota) -->
-          <div class="mini-mapa">
-            <img src="dota-logo.png" alt="Mapa Dota">
-          </div>
+          <!-- En la sección del logo, añadimos un contenedor de filtro -->
+<div class="mini-mapa">
+  <div class="vignette"></div> <!-- Capa para oscurecer bordes -->
+  <img src="dota-logo.png" alt="System Core">
+  <div class="scan-line"></div>
+</div>
 
-          <!-- BOTONES -->
-          <div class="grupo-botones">
-            <button onclick="moverIzquierda()">⬅ Izquierda</button>
-            <button onclick="moverDerecha()">Derecha ➡</button>
-            <button onclick="reiniciarJuego()" class="reiniciar">Reiniciar</button>
-          </div>
+<!-- Botones con iconos más estéticos -->
+<div class="grupo-botones">
+  <button onclick="moverIzquierda()">
+    <span class="arrow">«</span> IZQ
+  </button>
+  <button onclick="moverDerecha()">
+    DER <span class="arrow">»</span>
+  </button>
+  <button onclick="reiniciarJuego()" class="reiniciar">
+    <span class="refresh">⟳</span> REBOOT
+  </button>
+</div>
+
 
         </div>
-
       </div>
 
       <aside class="panel">
         <div class="marcador">
-          <p>PUNTOS</p>
+          <p>DATA_POINTS</p>
           <span id="txtPuntaje">0</span>
         </div>
 
         <div class="marcador">
-          <p>VIDAS</p>
+          <p>CORE_VITALITY</p>
           <span id="txtVida">3</span>
         </div>
       </aside>
