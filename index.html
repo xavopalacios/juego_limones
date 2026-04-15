@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="limones.css"/>
   <script src="utils.js"></script>
   <title>Caza Estrellas</title>
- 
- 
 </head>
+
 <body onload="iniciarJuego()">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Xavier Palacios</h2>
-    <canvas id="areaJuego" width="600px" height="400px"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVida">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
+  <main class="contenedor">
+
+    <header class="header">
+      <h1>Atrapar Limones</h1>
+      <p class="subtitulo">Si del cielo te caen limones...</p>
+      <h2 class="autor">Autor: Xavier Palacios</h2>
+    </header>
+
+    <section class="layout-juego">
       
-      <button onclick="reiniciarJuego()">Reiniciar</button>
-    </div>
-  </div>
+      <!-- BLOQUE JUEGO + CONTROLES -->
+      <div class="bloque-juego">
+        
+        <div class="juego">
+          <canvas id="areaJuego" width="600" height="400"></canvas>
+        </div>
+
+        <!-- HUD CONTROLES -->
+        <div class="controles-barra">
+          <button onclick="moverIzquierda()">⬅ Izquierda</button>
+          <button onclick="moverDerecha()">Derecha ➡</button>
+          <button onclick="reiniciarJuego()" class="reiniciar">Reiniciar</button>
+        </div>
+
+      </div>
+
+      <!-- PANEL DERECHO -->
+      <aside class="panel">
+        <div class="marcador">
+          <p>PUNTOS</p>
+          <span id="txtPuntaje">0</span>
+        </div>
+
+        <div class="marcador">
+          <p>VIDAS</p>
+          <span id="txtVida">3</span>
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+
   <script src="limones.js"></script>
 </body>
 </html>
