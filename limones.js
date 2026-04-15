@@ -98,7 +98,7 @@ function ajustarVelocidad() {
 }
 
 function actualizarPantalla(){
-    
+    envolverPersonaje();
     detectarFinJuego();
     detectarAtrapado();
     detectarPiso();
@@ -156,5 +156,14 @@ function detectarFinJuego(){
         vidas = vidas + 1;
         let componenteVida = document.getElementById("txtVida");
         componenteVida.textContent = vidas;
+    }
+}
+function envolverPersonaje() {
+    
+    if (personajeX > canvas.width) {
+        personajeX = 0;
+    } 
+    else if (personajeX < 0) {
+        personajeX = canvas.width;
     }
 }
