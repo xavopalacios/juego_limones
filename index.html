@@ -3,60 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente Cinzel para ese toque épico de Dota -->
   <link href="https://googleapis.com" rel="stylesheet">
+  <script src="utils.js"></script>
   <link rel="stylesheet" href="limones.css">
   <title>Limones One | Dota Edition</title>
 </head>
 
 <body onload="iniciarJuego()">
-  <main class="contenedor">
-
+  <main class="contenedor-principal">
+    
     <header class="header">
-      <h1 class="dota-title">ATRAPAR LIMONES</h1>
-      <h2 class="autor">FORJADO POR: Xavier Palacios</h2>
+      <h1 class="dota-title">🍋 ATRAPAR LIMONES 🍋</h1>
+      <h2 class="autor">⚔️ FORJADO POR: XAVIER PALACIOS ⚔️</h2>
     </header>
 
     <div class="top-bar">
-    <div class="marcador gold">
-      <p>GOLD</p>
-      <span id="txtPuntaje">0</span>
-    </div>
-    
-    <!-- Logo central con nueva fuente confiable -->
-    <div class="center-logo">
-        <img src="OIP.jpg" alt="Dota Logo">
-    </div>
+      <div class="marcador gold">
+        <p>💰 ORO</p>
+        <span id="txtPuntaje">0</span>
+      </div>
+      
+      <div class="center-logo">
+          <img src="OIP.jpg" alt="Dota Logo" class="logo-animado">
+      </div>
 
-    <div class="marcador health">
-      <p>VIDAS</p>
-      <span id="txtVida">3</span>
+      <div class="marcador health">
+        <p>❤️ VIDAS</p>
+        <span id="txtVida">3</span>
+      </div>
     </div>
-</div>
-
 
     <section class="layout-juego">
-      <div class="bloque-juego">
-        <div class="juego-frame">
-          <canvas id="areaJuego" width="600" height="400"></canvas>
+      <div class="juego-frame">
+        <canvas id="areaJuego" width="600" height="400"></canvas>
+      </div>
+
+      <div class="controles-barra">
+        <div class="grupo-botones-principales">
+          <button onclick="moverIzquierda()" class="btn-action btn-half">
+            <span class="arrow">⬅️</span> IZQUIERDA
+          </button>
+          <button onclick="moverDerecha()" class="btn-action btn-half">
+            DERECHA <span class="arrow">➡️</span>
+          </button>
         </div>
-
-        <!-- Reemplaza la sección .controles-barra por esta -->
-<div class="controles-barra">
-  <div class="grupo-botones-principales">
-    <button onclick="moverIzquierda()" class="btn-action btn-half">
-      <span class="arrow">«</span> IZQUIERDA
-    </button>
-    <button onclick="moverDerecha()" class="btn-action btn-half">
-      DERECHA <span class="arrow">»</span>
-    </button>
-  </div>
-  <div class="grupo-botones-secundarios">
-    <button onclick="reiniciarJuego()" class="reiniciar btn-full">
-      RECOMPRAR (REBOOT SYSTEM)
-    </button>
-  </div>
-</div>
-
+        <div class="grupo-botones-secundarios">
+          <button onclick="reiniciarJuego()" class="reiniciar btn-full">
+            🔥 RECOMPRAR (BUYBACK) 🔥
+          </button>
+        </div>
       </div>
     </section>
 
@@ -64,4 +60,3 @@
   <script src="limones.js"></script>
 </body>
 </html>
-

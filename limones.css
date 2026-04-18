@@ -1,24 +1,38 @@
 :root {
-  --dota-red: #ff4c4c; /* Rojo más brillante para visibilidad */
-  --dota-gold: #f1d37e; /* Oro más brillante */
+  --dota-red: #ff4c4c;
+  --dota-gold: #f1d37e;
   --dota-bg: #0d0e12;
   --dota-border: #4a4a4a;
   --font-epic: 'Cinzel', serif;
 }
 
+/* Cambios para el fondo y centrado */
 body {
-  background: radial-gradient(circle, #1b1e22 0%, #050505 100%);
-  color: #fff;
-  font-family: 'Marcellus', serif;
+  margin: 0;
   display: flex;
   justify-content: center;
-  margin: 0;
-  padding-top: 20px;
+  align-items: center;
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #e1e1e1;
+  font-family: sans-serif; /* Fallback simple */
 }
 
-.contenedor { width: 100%; max-width: 800px; text-align: center; }
+.contenedor { 
+  width: 100%; 
+  max-width: 800px; 
+  text-align: center; 
+  padding: 20px;
+}
 
-/* HEADER */
+/* --- Resto de tu código original sin cambios --- */
+
 .dota-title {
   font-family: var(--font-epic);
   font-size: 2.5rem;
@@ -29,7 +43,6 @@ body {
 
 .autor { font-size: 0.7rem; color: var(--dota-gold); letter-spacing: 2px; margin-bottom: 20px; }
 
-/* BARRA SUPERIOR DE MARCADORES */
 .top-bar {
     display: flex;
     justify-content: center;
@@ -56,12 +69,11 @@ body {
 
 .marcador span {
     font-family: var(--font-epic);
-    font-size: 2.2rem; /* Tamaño grande para visibilidad */
+    font-size: 2.2rem;
     display: block;
     text-shadow: 2px 2px 0px #000;
 }
 
-/* Colores específicos para que "brillen" */
 .gold p { color: var(--dota-gold); }
 .gold span { color: #fff; border-bottom: 3px solid var(--dota-gold); }
 
@@ -79,7 +91,6 @@ body {
     filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
 }
 
-/* FRAME DEL JUEGO */
 .juego-frame {
   border: 4px solid #1a1a1a;
   box-shadow: 0 10px 30px rgba(0,0,0,0.8);
@@ -87,15 +98,25 @@ body {
 
 canvas { background: #000; display: block; margin: 0 auto; width: 100%; }
 
-/* BOTONES */
 .controles-barra {
   background: #1c1f24;
-  padding: 15px;
+  padding: 10px;
   border: 2px solid var(--dota-border);
   border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.grupo-botones { display: flex; gap: 10px; }
+.grupo-botones-principales {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.grupo-botones-secundarios {
+  width: 100%;
+}
 
 button {
   flex: 1;
@@ -108,45 +129,13 @@ button {
   font-size: 0.9rem;
 }
 
-button:hover { background: #555; border-color: var(--dota-gold); }
-
-.reiniciar {
-  background: linear-gradient(to bottom, #8a2522, #4d1412);
-  border-color: #a4302d;
-}
-
-/* Contenedor principal de controles */
-.controles-barra {
-  background: #1c1f24;
-  padding: 10px;
-  border: 2px solid var(--dota-border);
-  border-top: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espacio entre las filas de botones */
-}
-
-/* Fila de botones de dirección */
-.grupo-botones-principales {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-/* Fila del botón de reinicio */
-.grupo-botones-secundarios {
-  width: 100%;
-}
-
-/* Estilo de botones mitad y mitad (50/50) */
 .btn-half {
-  flex: 1; /* Esto hace que cada uno ocupe el 50% exacto */
-  height: 80px; /* Más altos para que sea fácil tocarlos */
+  flex: 1;
+  height: 80px;
   font-size: 1.2rem !important;
   background: linear-gradient(to bottom, #3a3d44, #1b1e22) !important;
 }
 
-/* Estilo de botón ancho completo */
 .btn-full {
   width: 100%;
   height: 50px;
@@ -154,13 +143,18 @@ button:hover { background: #555; border-color: var(--dota-gold); }
   letter-spacing: 2px;
 }
 
-/* Efecto visual al presionar (Active) */
+.reiniciar {
+  background: linear-gradient(to bottom, #8a2522, #4d1412);
+  border-color: #a4302d;
+}
+
+button:hover { background: #555; border-color: var(--dota-gold); }
+
 button:active {
   transform: translateY(2px);
   filter: brightness(1.2);
 }
 
-/* Ajuste para que las flechas se vean pro */
 .arrow {
   display: block;
   font-size: 1.5rem;

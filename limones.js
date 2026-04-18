@@ -25,20 +25,17 @@ let velocidadLimon;
 
 
 function iniciarJuego(){    
-    ajustarVelocidad();
+    clearInterval(idIntervaloTiempo);
     idIntervaloTiempo=setInterval(bajarLimon,velocidadLimon);
     dibujarSuelo();
     dibujarPersonaje();
     dibujarLimon();
     aparecerLimon();
-    
-    
+
 }
 
 function reiniciarJuego(){
-    clearInterval(idIntervaloTiempo);
-    mostrarEnSpan("txtPuntaje",0);
-    mostrarEnSpan("txtVida",3);
+    
     puntaje=0;
     vidas=3;
     limpiarCanvas();          
@@ -46,8 +43,10 @@ function reiniciarJuego(){
     personajeY=canvas.height-(ALTURA_SUELO+ALTO_PERSONAJE);
     limonX=canvas.width/2;
     limonY=5;
-    velocidadLimon=100 + (5 - vidas) * 30;
+    velocidadLimon = 60+ ((maxVidas - 3) * 75)
     iniciarJuego();
+    mostrarEnSpan("txtPuntaje",0);
+    mostrarEnSpan("txtVida",3);
 }
 
 function dibujarSuelo(){
@@ -92,7 +91,7 @@ function limpiarCanvas(){
 function ajustarVelocidad() {
     let vidasActuales = parseInt(document.getElementById("txtVida").textContent);
   
-    velocidadLimon = 60+ ((maxVidas - vidasActuales) * 75);
+    velocidadLimon = 60+ ((maxVidas - vidasActuales) * 25);
     clearInterval(idIntervaloTiempo);
     idIntervaloTiempo=setInterval(bajarLimon,velocidadLimon);
 }
@@ -122,9 +121,6 @@ function detectarAtrapado(){
     }
 }
 
-function generarAleatorio(min, max) {
-    return Math.floor(Math.random() * (max - min +1 )) + min; // con esta función se genera un número aleatorio incluidos el mínimo y máximo 
-}
 
 function detectarPiso(){
     if(limonY+ALTO_LIMON>canvas.height-ALTURA_SUELO){
